@@ -39,8 +39,6 @@ export default function HomePage() {
           distortAmount={0}
           shineDirection="left"
           mixBlendMode="lighten"
-          color1="#FF9FFC"
-          color2="#5227FF"
         />
       </div>
 
