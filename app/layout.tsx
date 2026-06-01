@@ -2,9 +2,9 @@ import type { Metadata, Viewport } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'QRTrack — Lacak Barangmu dengan QR Code',
+  title: 'Anunya tolong dilacak',
   description:
-    'Platform manajemen inventaris gratis. Daftar, catat barang, dan generate QR Code untuk melacak aset pribadimu.',
+    'di-scan aja',
 };
 
 export const viewport: Viewport = {
