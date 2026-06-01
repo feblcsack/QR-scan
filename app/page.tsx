@@ -1,65 +1,201 @@
-import Image from "next/image";
+import Link from 'next/link';
+import { QrCode, Shield, Zap, Globe } from 'lucide-react';
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <main
+      style={{
+        minHeight: '100dvh',
+        background: 'var(--bg)',
+        display: 'flex',
+        flexDirection: 'column',
+      }}
+    >
+      {/* Nav */}
+      <nav
+        style={{
+          padding: '16px 20px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          borderBottom: '1px solid var(--border)',
+        }}
+      >
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <div
+            style={{
+              width: 32,
+              height: 32,
+              borderRadius: 8,
+              background: 'var(--accent)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            <QrCode size={18} color="white" />
+          </div>
+          <span
+            style={{
+              fontFamily: 'Syne, sans-serif',
+              fontWeight: 700,
+              fontSize: 18,
+              color: 'var(--text)',
+            }}
           >
-            Documentation
-          </a>
+            QRTrack
+          </span>
         </div>
-      </main>
-    </div>
+        <Link href="/auth/login">
+          <button className="btn-ghost" style={{ width: 'auto', padding: '8px 20px', fontSize: 14 }}>
+            Masuk
+          </button>
+        </Link>
+      </nav>
+
+      {/* Hero */}
+      <section
+        style={{
+          flex: 1,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: '48px 20px',
+          textAlign: 'center',
+          gap: 24,
+        }}
+      >
+        {/* Badge */}
+        <div
+          className="animate-fade-up"
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: 6,
+            background: 'var(--accent-glow)',
+            border: '1px solid var(--accent)',
+            borderRadius: 100,
+            padding: '6px 14px',
+            fontSize: 12,
+            fontWeight: 600,
+            color: 'var(--accent-light)',
+            fontFamily: 'Syne, sans-serif',
+            letterSpacing: '0.05em',
+            textTransform: 'uppercase',
+          }}
+        >
+          <Zap size={12} />
+          100% Gratis · Open Source
+        </div>
+
+        {/* Title */}
+        <h1
+          className="animate-fade-up stagger-1"
+          style={{
+            fontFamily: 'Syne, sans-serif',
+            fontSize: 'clamp(36px, 8vw, 64px)',
+            fontWeight: 800,
+            lineHeight: 1.1,
+            color: 'var(--text)',
+            maxWidth: 600,
+            opacity: 0,
+          }}
+        >
+          Lacak Barangmu
+          <br />
+          <span style={{ color: 'var(--accent)' }}>Pakai QR Code</span>
+        </h1>
+
+        <p
+          className="animate-fade-up stagger-2"
+          style={{
+            fontSize: 17,
+            lineHeight: 1.6,
+            color: 'var(--text-muted)',
+            maxWidth: 460,
+            opacity: 0,
+          }}
+        >
+          Daftar gratis, catat barangmu, dan generate QR Code instan.
+          Tempel di helm, koper, atau laptop — siapapun bisa scan untuk tahu info pemiliknya.
+        </p>
+
+        {/* CTA */}
+        <div
+          className="animate-fade-up stagger-3"
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 12,
+            width: '100%',
+            maxWidth: 320,
+            opacity: 0,
+          }}
+        >
+          <Link href="/auth/signup" style={{ width: '100%' }}>
+            <button className="btn-primary">
+              <QrCode size={18} />
+              Mulai Gratis Sekarang
+            </button>
+          </Link>
+          <Link href="/auth/login" style={{ width: '100%' }}>
+            <button className="btn-ghost">
+              Sudah punya akun? Masuk
+            </button>
+          </Link>
+        </div>
+
+        {/* Feature pills */}
+        <div
+          className="animate-fade-up stagger-4"
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            gap: 8,
+            justifyContent: 'center',
+            marginTop: 16,
+            opacity: 0,
+          }}
+        >
+          {[
+            { icon: <Shield size={14} />, text: 'Data Aman dengan RLS' },
+            { icon: <Zap size={14} />, text: 'QR Instan' },
+            { icon: <Globe size={14} />, text: 'Scan Tanpa Login' },
+          ].map((f) => (
+            <div
+              key={f.text}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 6,
+                background: 'var(--bg-card)',
+                border: '1px solid var(--border)',
+                borderRadius: 100,
+                padding: '8px 14px',
+                fontSize: 13,
+                color: 'var(--text-muted)',
+              }}
+            >
+              <span style={{ color: 'var(--accent)' }}>{f.icon}</span>
+              {f.text}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer
+        style={{
+          padding: '20px',
+          textAlign: 'center',
+          borderTop: '1px solid var(--border)',
+          color: 'var(--text-muted)',
+          fontSize: 13,
+        }}
+      >
+        QRTrack · Dibuat dengan ❤️ · Gratis Selamanya
+      </footer>
+    </main>
   );
 }
